@@ -1,8 +1,10 @@
 const request = require('request');
 //Assisted by Cal and Dan from East Coast May 30th, 2022 cohort.
-const fetchBreed = (breed, cb) => {
+const fetchBreedDesc = (breed, cb) => {
   if (breed.length !== 0) {
-    breed = breed.join('%20');
+    if (Array.isArray(breed)) {
+      breed = breed.join('%20');
+    }
     request(`http://api.thecatapi.com/v1/breeds/search?name=${breed}`, (err,response,body) =>{
       //Returning Error Results
       if (err) {
@@ -27,4 +29,4 @@ const fetchBreed = (breed, cb) => {
 
 
 
-module.exports = {fetchBreed};
+module.exports = {fetchBreedDesc};
