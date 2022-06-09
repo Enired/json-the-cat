@@ -6,7 +6,7 @@ const fetchBreed = (breed, cb) => {
     request(`http://api.thecatapi.com/v1/breeds/search?name=${breed}`, (err,response,body) =>{
       //Returning Error Results
       if (err) {
-       return cb(err);
+        return cb(err);
       }
       //For Returning Body Results
       body = JSON.parse(body);
@@ -27,4 +27,4 @@ const fetchBreed = (breed, cb) => {
 
 
 
-module.exports = {fetchBreed}
+module.exports = {fetchBreed};
